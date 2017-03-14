@@ -11,10 +11,10 @@ export default class DistrictRepository {
 
       if (!acc[location]) {
         acc[location] = { 'location': location,
-        'data': {}};
+        'data': {} };
       }
       if((typeof objData) === 'number') {
-        acc[location]['data'][timeFrame] = Math.round(objData*1000) / 1000;
+        acc[location]['data'][timeFrame] = Math.round(objData * 1000) / 1000;
       } else {
         acc[location]['data'][timeFrame] = 0;
       }
@@ -42,13 +42,11 @@ export default class DistrictRepository {
   // function filterItems(input) {
   findAllMatches(input) {
     const newObj = Object.keys(this.data);
-    if(!input) {
-      return newObj;
-    }
-    return newObj.filter((loc) =>
-    loc.toLowerCase().indexOf(input.toLowerCase()) > -1
-  )
-}
-
+      if(!input) {
+        return newObj;
+      }
+        return newObj.filter((loc) =>
+          loc.toLowerCase().indexOf(input.toLowerCase()) > -1
+  )}
 
 };
