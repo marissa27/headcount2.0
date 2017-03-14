@@ -9,7 +9,6 @@ export default class DistrictRepository {
       const location = currentValue.Location;
       const timeFrame = currentValue.TimeFrame;
 
-
       if (!acc[location]) {
         acc[location] = { 'location': location,
         'data': {}};
@@ -23,10 +22,7 @@ export default class DistrictRepository {
     },{})
   }
 
-
-
   findByName(name) {
-
     // console.log(this.data)
     let myArray = Object.keys(this.data);
 
@@ -38,12 +34,24 @@ export default class DistrictRepository {
         }
       });
       return this.data[searchName[0]];
-
     } else {
       return undefined
     };
-
   }
 
+  findAllMatches(input) {
+    const newObj = Object.keys(this.data)
+    newObj.filter((loc, i, arr) => {
+      if(loc.toLowerCase().includes(input.toLowerCase())) {
+        const resultArray = [];
+         resultArray.push(loc);
+         console.log(resultArray)
+         return resultArray;
+        // figure out how to return results in an array
+      } else {
+        return newObj;
+      }
+    })
+  }
 
-}
+};
