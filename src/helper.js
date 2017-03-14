@@ -33,7 +33,7 @@ export default class DistrictRepository {
           return myArray[index]
         }
       });
-      return this.data[searchName[0]];
+      return this.data[searchName];
     } else {
       return undefined
     };
