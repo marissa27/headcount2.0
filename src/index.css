@@ -1,5 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #CD5C5C;
+}
+
+.welcome {
+  text-align: center;
+  font-size: 65px;
+  color: white;
+  margin: 20px;
 }
