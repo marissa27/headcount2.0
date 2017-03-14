@@ -14,8 +14,12 @@ export default class DistrictRepository {
         acc[location] = { 'location': location,
         'data': {}};
       }
-      acc[location]['data'][timeFrame] = Math.round(objData*1000) / 1000;
-      return acc;
+      if((typeof objData) === 'number') {
+        acc[location]['data'][timeFrame] = Math.round(objData*1000) / 1000;
+      } else {
+        acc[location]['data'][timeFrame] = 0;
+      }
+        return acc;
     },{})
   }
 
@@ -40,5 +44,6 @@ export default class DistrictRepository {
     };
 
   }
+
 
 }
