@@ -18,7 +18,7 @@ export default class DistrictRepository {
       } else {
         acc[location]['data'][timeFrame] = 0;
       }
-        return acc;
+      return acc;
     },{})
   }
 
@@ -46,9 +46,9 @@ export default class DistrictRepository {
       return newObj;
     }
     return newObj.filter((loc) =>
-     loc.toLowerCase().indexOf(input.toLowerCase()) > -1
-    )
-  }
+    loc.toLowerCase().indexOf(input.toLowerCase()) > -1
+  )
+}
 
 
 };
