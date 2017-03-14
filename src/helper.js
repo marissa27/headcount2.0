@@ -9,26 +9,41 @@ export default class DistrictRepository {
       const location = currentValue.Location;
       const timeFrame = currentValue.TimeFrame;
 
+
       if (!acc[location]) {
-        acc[location] = {};
+        acc[location] = { 'location': location,
+        'data': {}};
       }
-      acc[location][timeFrame] = objData;
-      return acc;
+      if((typeof objData) === 'number') {
+        acc[location]['data'][timeFrame] = Math.round(objData*1000) / 1000;
+      } else {
+        acc[location]['data'][timeFrame] = 0;
+      }
+        return acc;
     },{})
   }
 
+
+
   findByName(name) {
+
     // console.log(this.data)
     let myArray = Object.keys(this.data);
 
-    myArray.filter((element, index, array) => {
-      // console.log(element)
-      if (!name || name !== element) {
-        return undefined;
-      } else {
-        console.log('suh');
-      }
-    }
+    // console.log(this.data)
+    if(name) {
+      let searchName = myArray.filter((element, index) => {
+        if(element.toLowerCase() ===  name.toLowerCase()) {
+          return myArray[index]
+        }
+      });
+      return this.data[searchName[0]];
 
-  )}
-};
+    } else {
+      return undefined
+    };
+
+  }
+
+
+}
