@@ -1,4 +1,5 @@
 /*APP COMPONENT RELATED CSS GOES HERE*/
-.district-card{
-  border: 1px solid black;
+.district-card {
+  text-align: left;
+  border: 10px solid black;
 }

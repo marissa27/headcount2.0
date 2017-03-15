@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardList from '../CardList/cardList.js';
+import '../App.css';
 
 export default class Card extends Component  {
   constructor() {
@@ -17,7 +18,7 @@ export default class Card extends Component  {
         )
       })
         return (
-            <div class="district-card">
+            <div className="district-card">
               <h6>{ this.props.loc }</h6>
               <ul>{ cardData }</ul>
             </div>
