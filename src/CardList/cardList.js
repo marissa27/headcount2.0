@@ -14,7 +14,6 @@ export default class CardList extends Component  {
         return(
           <Card key={i} loc={ loc } locData={ dataObj.data[loc].data }/>
         )
-        // console.log(dataObj.data[loc])
       })
         return (
             <div>
