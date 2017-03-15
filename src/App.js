@@ -7,8 +7,9 @@ import Search from './Search/search.js';
 class App extends Component {
   render() {
     return (
-      <div className="welcome">Welcome To Headcount 2.0
-        <Search/>
+      <div>
+        <Search />
+        <h1 className="welcome">Weclome to Headcount</h1>
         <CardList />
       </div>
     );

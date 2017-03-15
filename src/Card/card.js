@@ -12,7 +12,7 @@ export default class Card extends Component  {
       const { locData } = this.props
       // console.log(this.props)
       const cardData = Object.keys(locData).map((year, i) => {
-        console.log([year])
+        // console.log([year])
         return (
           <li key={i}>{year}: {locData[year]}</li>
         )
