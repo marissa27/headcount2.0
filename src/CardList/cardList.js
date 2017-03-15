@@ -6,13 +6,15 @@ import '../App.css';
 
 export default class CardList extends Component  {
     render() {
-      const dataObj = new DistrictRepository(kinderData);
+      // const dataObj = new DistrictRepository(kinderData);
       // console.log(dataObj)
-      const keys = Object.keys(dataObj.data)
+      const { data } = this.props;
+      // ^^ const data = this.props.data
+      const keys = Object.keys(this.props.data)
       // console.log(keys)
       const locationCards = keys.map((loc, i) => {
         return(
-          <Card key={i} loc={ loc } locData={ dataObj.data[loc].data }/>
+          <Card key={i} loc={ loc } locData={ data[loc].data }/>
         )
       })
         return (
