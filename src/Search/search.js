@@ -22,7 +22,8 @@ export default class Search extends Component {
     return (
       <div>
         <input onChange={(e) => this.userInput(e)} value={this.state.input} placeholder="Find your school" type="input" className="search-input"/>
-        <input type="button" className="submit-button" value="go"/>
+        <input type="button" className="submit-button" value="Go"/>
+        <input type="button" className='reset-button' value="Show all schools"/>
       </div>
     )
   }
