@@ -7,11 +7,18 @@ import Card from '../Card/card.js';
 export default class CardList extends Component  {
     render() {
       const dataObj = new DistrictRepository(kinderData);
-      console.log(dataObj)
-
+      // console.log(dataObj)
+      const keys = Object.keys(dataObj.data)
+      // console.log(keys)
+      const locationCards = keys.map((loc, i) => {
+        return(
+          <Card key={i} loc={ loc } locData={ dataObj.data[loc].data }/>
+        )
+        // console.log(dataObj.data[loc])
+      })
         return (
             <div>
-              <Card helperObj={dataObj} />
+              { locationCards }
             </div>
         );
     }
