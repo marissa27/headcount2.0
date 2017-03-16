@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DistrictRepository from '../helper.js';
-import kinderData from '../../data/kindergartners_in_full_day_program.js';
+// import DistrictRepository from '../helper.js';
+// import kinderData from '../../data/kindergartners_in_full_day_program.js';
 
 export default class Search extends Component {
   constructor() {
@@ -14,23 +14,31 @@ export default class Search extends Component {
       this.setState({
       input: e.target.value
     })
-  }
-
-  handleSubmitButton(e) {
-    this.setState({
-      input: e.target.value,
-    })
-    const searchDistricts = new DistrictRepository(kinderData);
+    // const { data } = this.props;
+    const searchDistricts = this.props.data;
+    // console.log(searchDistricts)
      const searchResults = searchDistricts.findAllMatches(this.state.input)
      console.log(searchResults)
+     this.passNewObj(searchResults);
+     console.log(this.props.findAllMatches)
+  }
+
+// figure out why findAllMatches isn't being called
+
+// figure that out then pass it to new function that setState
+// for the dr
+
+  passNewObj(newObj) {
+    console.log(this.searchResults)
+    this.setState({
+      dr: newObj,
+    })
   }
 
   render() {
-    // const dataObj = new DistrictRepository(kinderData)
     return (
       <div>
-        <input onChange={(e) => this.userInput(e)} value={this.state.input} placeholder="Find your school" type="input" className="search-input"/>
-        <input type="button" className="submit-button" value="Go" onClick={(e) => this.handleSubmitButton(e) }/>
+        <input onChange={(e) => this.userInput(e)} value={this.state.input} placeholder="Find your school" type="input" className="search-input" />
         <input type="button" className='reset-button' value="Show all schools"/>
         {/* <p> { searchResults }</p> */}
       </div>

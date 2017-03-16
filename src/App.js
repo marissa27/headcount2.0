@@ -21,13 +21,10 @@ class App extends Component {
   }
 
   render() {
-
-      console.log(this.state.dr.findByName('colorado'))
-    // debugger
     return (
       <div>
-        <Search />
-        <h1 className="welcome">Weclome to Headcount</h1>
+        <Search data={this.state.dr.data}/>
+        <h1 className="welcome">Welcome to Headcount</h1>
         <CardList data={this.state.dr.data} />
       </div>
     );

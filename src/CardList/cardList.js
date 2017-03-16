@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import DistrictRepository from '../helper.js';
-import kinderData from '../../data/kindergartners_in_full_day_program.js';
+// import DistrictRepository from '../helper.js';
+// import kinderData from '../../data/kindergartners_in_full_day_program.js';
 import Card from '../Card/card.js';
 import '../App.css';
 
 export default class CardList extends Component  {
     render() {
-      // const dataObj = new DistrictRepository(kinderData);
-      // console.log(dataObj)
+
       const { data } = this.props;
       // ^^ const data = this.props.data
       const keys = Object.keys(this.props.data)
@@ -18,7 +17,7 @@ export default class CardList extends Component  {
         )
       })
         return (
-            <div>
+            <div className="card">
               { locationCards }
             </div>
         );
