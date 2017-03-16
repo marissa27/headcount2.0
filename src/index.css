@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color: #CD5C5C;
 }
 
@@ -11,3 +11,12 @@ body {
   color: white;
   margin: 30px;
 }
+
+.stats {
+  list-style-type: none;
+}
+
+  .school-title {
+      text-transform: uppercase;
+      text-align: center;
+  }

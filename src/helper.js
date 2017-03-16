@@ -47,6 +47,5 @@ export default class DistrictRepository {
       }
         return newObj.filter((loc) =>
           loc.toLowerCase().indexOf(input.toLowerCase()) > -1
-  )}
-
+  )};
 };
