@@ -20,6 +20,7 @@ export default class Search extends Component {
      const searchResults = searchDistricts.findAllMatches(this.state.input)
      console.log(searchResults)
      this.passNewObj(searchResults);
+     console.log(this.props.findAllMatches)
   }
 
 // figure out why findAllMatches isn't being called
