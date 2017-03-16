@@ -42,8 +42,9 @@ export default class DistrictRepository {
   // function filterItems(input) {
   findAllMatches(input) {
     const newObj = Object.keys(this.data);
-    debugger
+    // debugger
       if(!input) {
+        console.log(newObj)
         return newObj;
       }
         return newObj.filter((loc) =>
