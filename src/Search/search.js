@@ -14,13 +14,12 @@ export default class Search extends Component {
       this.setState({
       input: e.target.value
     })
-    // const { data } = this.props;
     const searchDistricts = this.props.data;
+    // debugger
+    console.log(this.state.input)
     // console.log(searchDistricts)
      const searchResults = searchDistricts.findAllMatches(this.state.input)
-     console.log(searchResults)
      this.passNewObj(searchResults);
-     console.log(this.props.findAllMatches)
   }
 
 // figure out why findAllMatches isn't being called
@@ -37,8 +36,8 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
-        <input onChange={(e) => this.userInput(e)} value={this.state.input} placeholder="Find your school" type="input" className="search-input" />
+      <div className="nav-bar">
+        <input onChange={(e) => this.userInput(e)} value={this.state.input} placeholder="Find your school district" type="input" className="search-input" />
         <input type="button" className='reset-button' value="Show all schools"/>
         {/* <p> { searchResults }</p> */}
       </div>
