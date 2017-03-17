@@ -23,10 +23,7 @@ export default class DistrictRepository {
   }
 
   findByName(name) {
-    // console.log(this.data)
     let myArray = Object.keys(this.data);
-
-    // console.log(this.data)
     if(name) {
       let searchName = myArray.filter((element, index) => {
         if(element.toLowerCase() ===  name.toLowerCase()) {
@@ -39,13 +36,6 @@ export default class DistrictRepository {
     };
   }
 
-  // findAllMatches(arr, input) {
-  //   const filteredArray = arr.filter((obj) => {
-  //     const matchDist = Object.keys(obj)[0];
-      // return input.toLowerCase().indexOf(matchDist.toLowerCase()) > -1
-  //   })
-  // return filteredArray;
-  // };
   findAllMatches(arr, input) {
     const filteredArray = arr.filter((obj) => {
       const matchDist = Object.keys(obj)[0];
