@@ -23,10 +23,7 @@ export default class DistrictRepository {
   }
 
   findByName(name) {
-    // console.log(this.data)
     let myArray = Object.keys(this.data);
-
-    // console.log(this.data)
     if(name) {
       let searchName = myArray.filter((element, index) => {
         if(element.toLowerCase() ===  name.toLowerCase()) {

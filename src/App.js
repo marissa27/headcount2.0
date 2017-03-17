@@ -6,8 +6,8 @@ import DistrictRepository from './helper.js';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       dr: [],
       input: ''
@@ -16,12 +16,9 @@ class App extends Component {
 
   componentWillMount() {
 
-    // ^^ const data = this.props.data
     const newDistrict = new DistrictRepository(kinderData)
-    // const makeArray = Object.keys(newDistrict)
     const keys = Object.keys(newDistrict.data)
     const dataArray = keys.map(loc => {
-      // console.log(loc);
       return {[loc]: newDistrict.data[loc]}
     })
     this.setState({
@@ -45,6 +42,7 @@ class App extends Component {
       })
     }
 
+
   filteredData() {
     const newDistrict = new DistrictRepository(kinderData)
     const { input, dr } = this.state;
@@ -62,6 +60,7 @@ class App extends Component {
       <div>
 
         <div className="nav">
+
           <Search setFilter={this.setFilter.bind(this)} />
         </div>
 
@@ -75,5 +74,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
