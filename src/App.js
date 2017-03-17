@@ -26,18 +26,22 @@ class App extends Component {
     })
   }
 
-  commponentDidMount() {
+    commponentDidMount() {
 
-    const newDistrict = new DistrictRepository(kinderData)
-    const keys = Object.keys(newDistrict.data)
-    const dataArray = keys.map(loc => {
-      return {[loc]: newDistrict.data[loc]}
-    })
-    this.setState({
-      dr: dataArray,
-      input: ''
-    })
-  }
+      // ^^ const data = this.props.data
+      const newDistrict = new DistrictRepository(kinderData)
+      // const makeArray = Object.keys(newDistrict)
+      const keys = Object.keys(newDistrict.data)
+      const dataArray = keys.map(loc => {
+        // console.log(loc);
+        return {[loc]: newDistrict.data[loc]}
+      })
+      this.setState({
+        dr: dataArray,
+        input: ''
+      })
+    }
+
 
   filteredData() {
     const newDistrict = new DistrictRepository(kinderData)
