@@ -25,3 +25,7 @@ export default class Card extends Component  {
         );
     }
 }
+
+Card.propTypes = {
+  loc: React.PropTypes.string
+}

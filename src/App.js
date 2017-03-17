@@ -8,12 +8,18 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       dr: [],
       // displayedData: []
     }
+  }
+
+  searchResults(e) {
+      this.setState({
+        dr: this.state.dr.data.findAllMatches(e)
+      })
   }
   //search  needs to send new a prop that sends data back up to this (displatedData)
 
@@ -27,22 +33,13 @@ class App extends Component {
     })
   }
 
-  updateData(data) {
-    this.setState({
-      displatedData: data
-    })
-  }
-
   render() {
 
-    // const data = () => {
-    //   console.log(this.state.displatedData)
-    //   return !this.state.displatedData? this.state.dr.data : this.state.displatedData
-    // }
+  
     return (
       <div>
         <div className="nav">
-          <Search data={this.state.dr.data} filter={this.updateData.bind(this)}/>
+          <Search searchMatch={(e)=> this.searchResults(e)}/>
         </div>
         <div className="hero">
           <h1 className="welcome">Welcome to HeadCount!</h1>
@@ -54,5 +51,5 @@ class App extends Component {
     );
   }
 }
-
+// data={this.state.dr.data} filter={this.updateData.bind(this)}
 export default App;
