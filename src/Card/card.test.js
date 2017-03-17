@@ -1,19 +1,49 @@
-import Card from '../../src/Card/Card.js';
-// import kinderData from '../../data/kindergartners_in_full_day_program.js';
 
-describe('Testing Card Component', () =>  {
-  const card = new Card(district);
+import Card from '../Card/card'
+import { shallow, mount } from 'enzyme'
+import React from 'react';
 
-  test('', () => {
+import DistrictRepository from '../../src/helper.js';
+import kinderData from '../../data/kindergartners_in_full_day_program.js';
 
+describe('DistrictCard tests', () =>  {
+  const district = new DistrictRepository(kinderData);
+  const exampleData = district.findByName('Colorado')
+
+  test('districtCard has class of district-card', () => {
+    const wrapper = shallow(<Card districtData={exampleData} />)
+    expect(wrapper.hasClass('district-card')).toBe(true);
   });
 
-
-
+  test('card displays all data provided', () => {
+    const wrapper = shallow(<Card districtData={exampleData} />)
+    expect(wrapper.find('.school-title').length).toBe(11);
+  })
 });
 
 
-// cardlist Component
-// grab data
-// map over and with each new one
- // pass to card data it needs
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import { shallow, mount } from 'enzyme'
+// import DistrictRepository from '../../src/helper.js';
+// import kinderData from '../../data/kindergartners_in_full_day_program.js';
+// import Card from '../Card/card.js'
+//
+//
+// describe('Card', () => {
+//
+//   it('Has a class of district card', () => {
+//     const wrapper = shallow(<Card/>)
+//     expect(wrapper.find('.district-card').length).toEqual(1)
+//   });
+//
+//
+// })

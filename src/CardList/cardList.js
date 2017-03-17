@@ -5,6 +5,7 @@ import Card from '../Card/card.js';
 import '../App.css';
 
 export default class CardList extends Component  {
+
     render() {
 
       const { data } = this.props;
@@ -12,6 +13,7 @@ export default class CardList extends Component  {
       const keys = Object.keys(this.props.data)
       // console.log(keys)
       const locationCards = keys.map((loc, i) => {
+
         return(
           <Card key={i} loc={ loc } locData={ data[loc].data }/>
         )
