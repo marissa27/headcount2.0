@@ -39,15 +39,21 @@ export default class DistrictRepository {
     };
   }
 
-  // function filterItems(input) {
-  findAllMatches(input) {
-    const newObj = Object.keys(this.data);
-    // debugger
-      if(!input) {
-        // console.log(newObj)
-        return newObj;
-      }
-        return newObj.filter((loc) =>
-          loc.toLowerCase().indexOf(input.toLowerCase()) > -1
-  )};
-};
+  // findAllMatches(arr, input) {
+  //   const filteredArray = arr.filter((obj) => {
+  //     const matchDist = Object.keys(obj)[0];
+      // return input.toLowerCase().indexOf(matchDist.toLowerCase()) > -1
+  //   })
+  // return filteredArray;
+  // };
+  findAllMatches(arr, input) {
+    const filteredArray = arr.filter((obj) => {
+      const matchDist = Object.keys(obj)[0];
+      const text = input.toLowerCase();
+      if(matchDist.toLowerCase().includes(text)) {
+        return obj
+      };
+    })
+    return filteredArray
+  };
+}
