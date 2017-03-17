@@ -3,8 +3,8 @@ import DistrictRepository from '../helper.js';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
 
 export default class Search extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       input : '',
     }
@@ -15,7 +15,6 @@ export default class Search extends Component {
       input: e.target.value,
     })
     const searchDistricts = new DistrictRepository(kinderData);
-    // const searchResults = searchDistricts.findAllMatches(this.state.input)
   }
 
   handleKeyUp() {
@@ -26,15 +25,15 @@ export default class Search extends Component {
     return (
       <div>
         <input onChange={ (e) => this.updateInput(e) }
-               value={this.state.input}
-               placeholder="Find your school"
-               type="input"
-               className="search-input"
-               onKeyUp={()=> this.handleKeyUp() }/>
-        <input type="button"
-               className='reset-button'
-               value="Show all schools"/>
-      </div>
-    )
-  }
-}
+          value={this.state.input}
+          placeholder="Find your school"
+          type="input"
+          className="search-input"
+          onKeyUp={()=> this.handleKeyUp() }/>
+          {/* <input type="button"
+            className='reset-button'
+            value="Show all schools"/> */}
+          </div>
+        )
+      }
+    }
