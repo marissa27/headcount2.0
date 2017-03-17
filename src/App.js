@@ -14,21 +14,11 @@ class App extends Component {
     }
   }
 
-  // searchResults(e) {
-  //     this.setState({
-  //       dr: this.state.dr.data.findAllMatches(e)
-  //     })
-  // }
-  //search  needs to send new a prop that sends data back up to this (displatedData)
-
   componentWillMount() {
 
-    // ^^ const data = this.props.data
     const newDistrict = new DistrictRepository(kinderData)
-    // const makeArray = Object.keys(newDistrict)
     const keys = Object.keys(newDistrict.data)
     const dataArray = keys.map(loc => {
-      // console.log(loc);
       return {[loc]: newDistrict.data[loc]}
     })
     this.setState({
@@ -36,21 +26,18 @@ class App extends Component {
     })
   }
 
-    commponentDidMount() {
+  commponentDidMount() {
 
-      // ^^ const data = this.props.data
-      const newDistrict = new DistrictRepository(kinderData)
-      // const makeArray = Object.keys(newDistrict)
-      const keys = Object.keys(newDistrict.data)
-      const dataArray = keys.map(loc => {
-        // console.log(loc);
-        return {[loc]: newDistrict.data[loc]}
-      })
-      this.setState({
-        dr: dataArray,
-        input: ''
-      })
-    }
+    const newDistrict = new DistrictRepository(kinderData)
+    const keys = Object.keys(newDistrict.data)
+    const dataArray = keys.map(loc => {
+      return {[loc]: newDistrict.data[loc]}
+    })
+    this.setState({
+      dr: dataArray,
+      input: ''
+    })
+  }
 
   filteredData() {
     const newDistrict = new DistrictRepository(kinderData)
@@ -83,5 +70,4 @@ class App extends Component {
     );
   }
 }
-// data={this.state.dr.data} filter={this.updateData.bind(this)}
 export default App;
