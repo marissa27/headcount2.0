@@ -10,7 +10,7 @@ body {
 .hero {
   margin-top: 80px;
   height: 190px;
-  background-image: url("https://smithsystem.com/wp-content/uploads/2012/04/page_photo_classroom_diamond.jpg");
+  background-image: url("../images/classroom.png");
   /*opacity: 0.5;*/
 }
 

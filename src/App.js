@@ -13,7 +13,6 @@ class App extends Component {
       input: ''
     }
   }
-  //search  needs to send new a prop that sends data back up to this (displatedData)
 
   componentWillMount() {
 
@@ -29,7 +28,6 @@ class App extends Component {
       dr: dataArray
     })
   }
-
 
     commponentDidMount() {
 
