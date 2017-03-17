@@ -5,8 +5,6 @@ import Search from './Search/search.js';
 import DistrictRepository from './helper.js';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
 
-
-
 class App extends Component {
   constructor() {
     super()
@@ -50,22 +48,18 @@ class App extends Component {
     }
 
   filteredData() {
-
+    const newDistrict = new DistrictRepository(kinderData)
+    const { input, dr } = this.state;
+    return !input ? dr : newDistrict.findAllMatches(dr, input)
   }
 
   setFilter(e) {
-    this.setState({
-      input: e
-      }
-    )
+    this.setState({ input: e }, () => {
+      this.filteredData()
+    })
   }
 
   render() {
-
-    // const data = () => {
-    //   console.log(this.state.displatedData)
-    //   return !this.state.displatedData? this.state.dr.data : this.state.displatedData
-    // }
     return (
       <div>
 
@@ -77,7 +71,7 @@ class App extends Component {
           <h1 className="welcome">Welcome to HeadCount!</h1>
           <p className="description">Look through all of the counties in Colorado for data on kindergartners in a full day program.</p>
         </div>
-        <CardList data={ this.state.dr }  />
+        <CardList data={ this.filteredData() }  />
       </div>
 
     );

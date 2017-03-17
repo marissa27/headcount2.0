@@ -15,7 +15,7 @@ export default class Search extends Component {
       input: e.target.value,
     })
     const searchDistricts = new DistrictRepository(kinderData);
-    const searchResults = searchDistricts.findAllMatches(this.state.input)
+    // const searchResults = searchDistricts.findAllMatches(this.state.input)
   }
 
   handleKeyUp() {
