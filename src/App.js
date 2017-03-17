@@ -12,7 +12,7 @@ class App extends Component {
     super()
     this.state = {
       dr: [],
-      // displayedData: []
+      input: ''
     }
   }
   //search  needs to send new a prop that sends data back up to this (displatedData)
@@ -22,15 +22,42 @@ class App extends Component {
     // ^^ const data = this.props.data
     const newDistrict = new DistrictRepository(kinderData)
     // const makeArray = Object.keys(newDistrict)
+    const keys = Object.keys(newDistrict.data)
+    const dataArray = keys.map(loc => {
+      // console.log(loc);
+      return {[loc]: newDistrict.data[loc]}
+    })
     this.setState({
-      dr: newDistrict
+      dr: dataArray
     })
   }
 
-  updateData(data) {
+
+    commponentDidMount() {
+
+      // ^^ const data = this.props.data
+      const newDistrict = new DistrictRepository(kinderData)
+      // const makeArray = Object.keys(newDistrict)
+      const keys = Object.keys(newDistrict.data)
+      const dataArray = keys.map(loc => {
+        // console.log(loc);
+        return {[loc]: newDistrict.data[loc]}
+      })
+      this.setState({
+        dr: dataArray,
+        input: ''
+      })
+    }
+
+  filteredData() {
+
+  }
+
+  setFilter(e) {
     this.setState({
-      displatedData: data
-    })
+      input: e
+      }
+    )
   }
 
   render() {
@@ -41,14 +68,16 @@ class App extends Component {
     // }
     return (
       <div>
+
         <div className="nav">
-          <Search data={this.state.dr.data} filter={this.updateData.bind(this)}/>
+          <Search setFilter={this.setFilter.bind(this)} />
         </div>
+
         <div className="hero">
           <h1 className="welcome">Welcome to HeadCount!</h1>
           <p className="description">Look through all of the counties in Colorado for data on kindergartners in a full day program.</p>
         </div>
-        <CardList data={this.state.dr.data}  />
+        <CardList data={ this.state.dr }  />
       </div>
 
     );
