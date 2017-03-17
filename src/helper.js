@@ -44,7 +44,7 @@ export default class DistrictRepository {
     const newObj = Object.keys(this.data);
     // debugger
       if(!input) {
-        console.log(newObj)
+        // console.log(newObj)
         return newObj;
       }
         return newObj.filter((loc) =>
